@@ -9,7 +9,7 @@
 # User-specific stuff
 .idea
 
-
+.editorconfig
 # CMake
 cmake-build-*/
 
@@ -17,6 +17,7 @@ cmake-build-*/
 # File-based project format
 *.iws
 
+node_modules/
 # IntelliJ
 out/
 
@@ -75,8 +76,6 @@ target/
 .gradle
 build/
 
-
-node_modules/
 # Ignore Gradle GUI config
 gradle-app.setting
 
