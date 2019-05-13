@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import { IVeiculo } from './veiculo';
+import { Veiculo } from './veiculo-form/model';
 
 
 
@@ -18,15 +19,28 @@ export class VeiculosService {
 
   pesquisar(): Observable<IVeiculo[]> {
     return this.http.get<IVeiculo[]>(this.veiculosUrl);
-    // return this.http.get(`${this.veiculosUrl}`)
-    //   .toPromise()
-    //   .then(response => {
-    //     console.log(response.toString());
-    //   })
 
   }
 
   excluir(id: number) {
-    return this.http.delete(this.veiculosUrl + "/" + id);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+
+      })
+    };
+    const url = `${this.veiculosUrl}/${id}`;
+    this.http.delete(url, httpOptions);
+  }
+
+  
+  adicionar(veiculo: Veiculo): Observable<Veiculo> {
+    const headers = new HttpHeaders();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    return this.http.post<Veiculo>(this.veiculosUrl, veiculo, httpOptions);
   }
 }

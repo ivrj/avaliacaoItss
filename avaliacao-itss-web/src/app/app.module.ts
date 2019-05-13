@@ -8,17 +8,18 @@ import {ButtonModule} from 'primeng/button';
 import {DataTableModule} from 'primeng/datatable';
 import {DropdownModule} from 'primeng/dropdown';
 import {TooltipModule} from 'primeng/tooltip';
-import {VeiculoPesquisaComponent} from './veiculos/veiculo-pesquisa/veiculo-pesquisa.component';
-import { VeiculoCadastroComponent } from './veiculos/veiculo-cadastro/veiculo-cadastro.component';
+import { VeiculoFormComponent } from './veiculos/veiculo-form/veiculo-form.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { VeiculosService } from './veiculos/veiculos.service';
+import { FormsModule } from '@angular/forms';
+
+ 
 
 @NgModule({
   declarations: [
     AppComponent,
-    VeiculoPesquisaComponent,
-    VeiculoCadastroComponent,
+    VeiculoFormComponent,
     NavbarComponent
   ],
   imports: [
@@ -29,7 +30,8 @@ import { VeiculosService } from './veiculos/veiculos.service';
     DataTableModule,
     HttpClientModule,
     DropdownModule,
-    TooltipModule
+    TooltipModule,
+    FormsModule
   ],
   providers: [VeiculosService],
   bootstrap: [AppComponent]

@@ -1,0 +1,62 @@
+<div class="container">
+  <form #f="ngForm" autocomplete="off"  (ngSubmin)="salvar(f)">
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <h1>Veiculos</h1>
+      </div>
+
+
+      <div class="ui-g-12 ui-fluid">
+        <span class="ui-float-label ui-fluid">
+          <input id="float-input" type="text" size="30" pInputText [(ngModel)]="veiculo.modelo" name="modelo">
+          <label for="float-input">Modelo</label>
+        </span>
+      </div>
+
+
+
+      <div class="ui-g-4">
+        <span class="ui-float-label">
+          <input id="float-input" type="text" size="33" pInputText  [(ngModel)]="veiculo.cor" name="cor">
+          <label for="float-input">Cor</label>
+        </span>
+      </div>
+      <div class="ui-g-4">
+        <span class="ui-float-label">
+          <input id="float-input" type="text" size="33" pInputText [(ngModel)]="veiculo.placa" name="placa">
+          <label for="float-input">Placa</label>
+        </span>
+      </div>
+      <div class="ui-g-4">
+        <button pButton label="Salvar Veículo" (click)="salvar()"></button>
+      </div>
+      <div class="ui-g-12">
+        <button pButton type="button" label="Pesquisar" (click)="pesquisar()"></button>
+      </div>
+
+    </div>
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <p-dataTable [value]="listaVeiculos" [responsive]="true" [paginator]="true" [rows]="5" styleClass="myTable">
+          <p-column field="id" header="Código" styleClass="col-id"></p-column>
+          <p-column field="modelo" header="Modelo"></p-column>
+          <p-column field="cor" header="Cor"></p-column>
+          <p-column styleClass="col-acoes">
+            <ng-template pTemplate="body">
+              <button pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></button>
+            </ng-template>
+          </p-column>
+          <p-column styleClass="col-acoes">
+            <ng-template pTemplate="body" let-veic="rowData">
+              <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"
+                (click)="excluir(veic)"></button>
+            </ng-template>
+          </p-column>
+        </p-dataTable>
+      </div>
+
+
+    </div>
+  </form>
+ 
+</div>
