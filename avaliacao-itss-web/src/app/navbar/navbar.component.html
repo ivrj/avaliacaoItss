@@ -2,7 +2,7 @@
   <div class="container">
     <div class="ui-g">
       <div class="ui-g-12">
-          <a href="javascript:;" class="navbar-toggle" (click)="exibindoMenu = !exibindoMenu"><i class="pi pi-align-justify">
+          <a href="javascript:;" class="navbar-toggle" (click)="this.hiddenBar = !this.hiddenBar"><i class="pi pi-align-justify">
             </i>
             </a>
 
@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <ul class="navbar-menu" [hidden]="exibindoMenu">
+  <ul class="navbar-menu" [hidden]="this.hiddenBar">
     <li class="navbar-usuario">Administrador</li>
     <li class="navbar-menuitem"> <a href="#">Clientes</a></li>
     <li class="navbar-menuitem"> <a href="#">Veículos</a></li>
