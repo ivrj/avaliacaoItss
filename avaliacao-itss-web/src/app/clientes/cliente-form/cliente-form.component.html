@@ -1,0 +1,61 @@
+<div class="container">
+  <form #f="ngForm" autocomplete="off"  (ngSubmin)="salvar(f)">
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <h1>Clientes</h1>
+      </div>
+
+
+      <div class="ui-g-12 ui-fluid">
+        <span class="ui-float-label ui-fluid">
+          <input id="float-input" type="text" 
+            pInputText
+            size="30"  
+            [(ngModel)]="cliente.nome" 
+            maxlength="40"
+            name="nome">
+          <label for="float-input">Nome</label>
+        </span>
+      </div>
+
+
+
+      <div class="ui-g-4">
+        <span class="ui-float-label">
+          <input id="float-input" type="text" size="33" pInputText  [(ngModel)]="cliente.cpf" name="cpf">
+          <label for="float-input">CPF</label>
+        </span>
+      </div>
+      <div class="ui-g-4">
+        <span class="ui-float-label">
+          <input id="float-input" type="text" size="33" pInputText [(ngModel)]="cliente.telefone" name="telefone">
+          <label for="float-input">Telefone</label>
+        </span>
+      </div>
+      <div class="ui-g-4">
+        <button pButton label="Salvar" (click)="salvar()"></button>
+      </div>
+      <div class="ui-g-12">
+        <button pButton type="button" label="Pesquisar" (click)="pesquisar()"></button>
+      </div>
+
+    </div>
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <p-dataTable [value]="listaClientes" [responsive]="true" [paginator]="true" [rows]="5" styleClass="myTable">
+          <p-column field="id" header="Código" styleClass="col-id"></p-column>
+          <p-column field="nome" header="Nome"></p-column>
+          <p-column field="cpf" header="CPF"></p-column>
+          <p-column field="telefone" header="Telefone"></p-column>
+          <p-column styleClass="col-acoes">
+            <ng-template pTemplate="body" let-pess="rowData">
+              <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"
+                (click)="excluir(pess)"></button>
+            </ng-template>
+          </p-column>
+        </p-dataTable>
+      </div>
+    </div>
+  </form>
+ 
+</div>
