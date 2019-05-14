@@ -8,7 +8,12 @@
 
       <div class="ui-g-12 ui-fluid">
         <span class="ui-float-label ui-fluid">
-          <input id="float-input" type="text" size="30" pInputText [(ngModel)]="veiculo.modelo" name="modelo">
+          <input id="float-input" type="text" 
+            pInputText
+            size="30"  
+            [(ngModel)]="veiculo.modelo" 
+            maxlength="40"
+            name="modelo">
           <label for="float-input">Modelo</label>
         </span>
       </div>
@@ -28,7 +33,7 @@
         </span>
       </div>
       <div class="ui-g-4">
-        <button pButton label="Salvar Veículo" (click)="salvar()"></button>
+        <button pButton label="Salvar" (click)="salvar()"></button>
       </div>
       <div class="ui-g-12">
         <button pButton type="button" label="Pesquisar" (click)="pesquisar()"></button>
@@ -41,11 +46,7 @@
           <p-column field="id" header="Código" styleClass="col-id"></p-column>
           <p-column field="modelo" header="Modelo"></p-column>
           <p-column field="cor" header="Cor"></p-column>
-          <p-column styleClass="col-acoes">
-            <ng-template pTemplate="body">
-              <button pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></button>
-            </ng-template>
-          </p-column>
+           
           <p-column styleClass="col-acoes">
             <ng-template pTemplate="body" let-veic="rowData">
               <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"
@@ -54,6 +55,7 @@
           </p-column>
         </p-dataTable>
       </div>
+
 
 
     </div>

@@ -13,6 +13,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { VeiculosService } from './veiculos/veiculos.service';
 import { FormsModule } from '@angular/forms';
+import { ClienteService } from './clientes/cliente.service';
+import { ClienteFormComponent } from './clientes/cliente-form/cliente-form.component';
+import { PatioFormComponent } from './patio/patio-form/patio-form.component';
 
  
 
@@ -20,7 +23,10 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     VeiculoFormComponent,
-    NavbarComponent
+    NavbarComponent,
+    ClienteFormComponent,
+    ClienteFormComponent,
+    PatioFormComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +39,7 @@ import { FormsModule } from '@angular/forms';
     TooltipModule,
     FormsModule
   ],
-  providers: [VeiculosService],
+  providers: [VeiculosService,ClienteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

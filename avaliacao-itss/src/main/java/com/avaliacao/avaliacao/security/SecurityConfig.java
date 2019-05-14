@@ -9,7 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 
 @Configuration
-@EnableWebSecurity
+
 public class SecurityConfig  extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -26,10 +26,19 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
                 .antMatchers("/veiculo").permitAll()
                 .antMatchers("/cliente").permitAll()
                 .antMatchers("/movimentoestacionamento").permitAll()
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()
                 .and()
                 .httpBasic().and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .csrf().disable();
+
+
+
+//        http.authorizeRequests()
+//                .antMatchers("/veiculo").permitAll()
+//                .anyRequest().authenticated()
+//                .and()
+//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+//                .csrf().disable();
     }
 }

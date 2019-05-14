@@ -36,4 +36,6 @@ public class ClienteController {
     public void deletar(@PathVariable Long id){
         clienteRepository.deleteById(id);
     }
+
+    //public Cliente buscar(@PathVariable String coluna, @PathVariable String valor);
 }

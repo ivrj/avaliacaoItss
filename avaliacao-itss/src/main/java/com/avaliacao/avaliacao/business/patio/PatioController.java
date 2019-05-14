@@ -5,8 +5,10 @@ import com.avaliacao.avaliacao.model.Patio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.text.html.Option;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class PatioController {
@@ -25,11 +27,24 @@ public class PatioController {
         return patioRepository.findAll();
     }
 
+//    @GetMapping("/patio/{id}")
+//    public Patio validarPatio(@PathVariable Patio patio){
+//        Patio _patio = null;
+//        if(patio != null && patio.getId() != null ){
+//            _patio = patioRepository.getOne(patio.getId());
+//        }
+//
+//        return patio;
+//    }
+
     @GetMapping("/patio/{id}")
     public Patio buscarPorId(@PathVariable Long id){
-        return patioRepository.findById(id).orElse(null);
+        Optional<Patio> patioSalvo = patioRepository.findById(id);
+        if(!patioSalvo.isPresent() ){
+            throw new IllegalArgumentException();
+        }
+        return patioSalvo.get();
     }
-
 
     @DeleteMapping("/patio/{id}")
     public void deletar(@PathVariable Long id){

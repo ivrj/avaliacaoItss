@@ -34,6 +34,7 @@ public class VeiculoController {
     }
 
 
+
     @DeleteMapping("/veiculo/{id}")
     public void deletar(@PathVariable Long id){
         veiculoRepository.deleteById(id);

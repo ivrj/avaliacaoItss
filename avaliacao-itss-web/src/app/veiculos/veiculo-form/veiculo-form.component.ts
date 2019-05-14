@@ -18,6 +18,10 @@ export class VeiculoFormComponent implements OnInit {
     this.pesquisar();
   }
 
+  limparCampos(){
+    this.veiculo = new Veiculo();
+  }
+
   pesquisar() {
     this.veiculosService.pesquisar()
       .subscribe(data => this.listaVeiculos = data);
@@ -25,13 +29,18 @@ export class VeiculoFormComponent implements OnInit {
 
   excluir(veiculo: any) {
 
-    this.veiculosService.excluir(veiculo.id);
+    this.veiculosService.excluir(veiculo.id)
+      .subscribe(() => this.pesquisar());
 
   }
 
+
   salvar(form: FormControl) {
     this.veiculosService.adicionar(this.veiculo)
-    .subscribe(veiculo => this.pesquisar());
+    .subscribe(veiculo => {
+      this.pesquisar(); 
+      this.limparCampos()
+    });
 
   }
 
