@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { VeiculosService } from './veiculos/veiculos.service';
 import { FormsModule } from '@angular/forms';
 import { ClienteService } from './clientes/cliente.service';
+import { PatioService } from './patio/patio.service';
 import { ClienteFormComponent } from './clientes/cliente-form/cliente-form.component';
 import { PatioFormComponent } from './patio/patio-form/patio-form.component';
 
@@ -39,7 +40,7 @@ import { PatioFormComponent } from './patio/patio-form/patio-form.component';
     TooltipModule,
     FormsModule
   ],
-  providers: [VeiculosService,ClienteService],
+  providers: [VeiculosService,ClienteService, PatioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

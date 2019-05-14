@@ -24,7 +24,11 @@ export class ClienteService {
  
   constructor(private http: HttpClient) { }
 
-  pesquisar(nome: String): Observable<ICliente[]> {
+  pesquisar(): Observable<ICliente[]> {
+    return this.http.get<ICliente[]>(clientesUrl);
+  }
+
+  pesquisarPorNome(nome: String): Observable<ICliente[]> {
     const url = `${clientesUrl}/${nome}`;
     return this.http.get<ICliente[]>(url);
   }

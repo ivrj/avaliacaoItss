@@ -22,8 +22,13 @@ export class ClienteFormComponent implements OnInit {
     this.cliente = new Cliente();
   }
 
-  pesquisar(cliente: any) {
-    this.clienteService.pesquisar(cliente.nome)
+  pesquisarPorNome(cliente: any) {
+    this.clienteService.pesquisarPorNome(cliente.nome)
+      .subscribe(data => this.listaClientes = data);
+  }
+
+  pesquisar() {
+    this.clienteService.pesquisar()
       .subscribe(data => this.listaClientes = data);
   }
 

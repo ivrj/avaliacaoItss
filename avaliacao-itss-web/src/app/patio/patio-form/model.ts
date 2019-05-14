@@ -1,4 +1,4 @@
-export interface IPatio{
+export class Patio{
     id: number;
     nome: string;
     cpf: string;
