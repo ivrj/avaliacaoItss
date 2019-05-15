@@ -25,11 +25,15 @@ public class ClienteController {
         return clienteRepository.findAll();
     }
 
-    @GetMapping("/cliente/{id}")
+    @GetMapping("cliente/{id}")
     public Cliente buscarPorId(@PathVariable Long id){
         return clienteRepository.findById(id).orElse(null);
     }
 
+    @GetMapping("clientes/{nome}")
+    public List<Cliente> buscarPorNome(@PathVariable String nome){
+        return clienteRepository.findAllByNomeContains(nome);
+    }
 
     @DeleteMapping("/cliente/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

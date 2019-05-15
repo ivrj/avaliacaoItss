@@ -22,8 +22,8 @@ export class ClienteFormComponent implements OnInit {
     this.cliente = new Cliente();
   }
 
-  pesquisarPorNome(cliente: any) {
-    this.clienteService.pesquisarPorNome(cliente.nome)
+  pesquisarPorNome(nome:String) {
+    this.clienteService.pesquisarPorNome(nome)
       .subscribe(data => this.listaClientes = data);
   }
 

@@ -23,7 +23,8 @@ public class Cliente implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(length = 11)
+
+    @Column(length = 11, unique = true)
     private String cpf;
 
     @Column(length = 30)
